@@ -1,0 +1,48 @@
+INTENTO 4 DE HOME
+
+// Detecta el evento de scroll para mostrar rootheader y rootsections
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+  
+    if (scrollPosition > 10) {
+      rootheader.style.display = 'block';
+      rootsections.style.display = 'block';
+      roothome.style.height = 'auto'; // Ajusta la altura a 'auto'
+    } else {
+      rootheader.style.display = 'none';
+      rootsections.style.display = 'none';
+      roothome.style.height = '200vh'; // Restablece la altura al valor inicial
+    }
+  });
+
+// Haz que rootheader esté fijo en la parte superior de rootsections
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition > 90) {
+    rootheader.classList.add('fixed-header');
+  } else {
+    rootheader.classList.remove('fixed-header');
+  }
+});
+
+
+CSS
+
+
+/* Establece una altura inicial para roothome */
+.roothome {
+    height: 200vh; /* O ajusta la altura según tus necesidades */
+    transition: height 0.5s; /* Agrega una transición suave para el cambio de altura */
+  }
+  
+  
+
+  /* Establece una posición fija para rootheader */
+.rootheader {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+  
+  

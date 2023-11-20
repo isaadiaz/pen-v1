@@ -1,0 +1,615 @@
+CODIGO SIN LOS LINKS
+
+
+
+const roothome = document.querySelector('.roothome');
+const rootheader = document.querySelector('.rootheader');
+const rootsections = document.querySelector('.rootsections');
+
+
+// Creo la sección
+const sec1 = document.createElement('section');
+sec1.className = 'sec1';
+sec1.id = 'section1';
+
+// Creo el primer div dentro de la sección
+const menusec1 = document.createElement('div');
+menusec1.className = 'menusec1';
+
+// Creo el primer div dentro de menusec1
+const div1sec1 = document.createElement('div');
+div1sec1.className = 'div1sec1';
+const div1sec1Content = document.createElement('p');
+div1sec1Content.textContent = 'Penthouse® is a creative studio working globally from New York, dedicated to designing holistic brand identities founded on storytelling for ambitious start-ups.';
+div1sec1.appendChild(div1sec1Content);
+
+// Creo el segundo div dentro de menusec1
+const div2sec1 = document.createElement('div');
+div2sec1.className = 'div2sec1';
+const div2sec1Content = document.createElement('p');
+div2sec1Content.textContent = 'Services include brand strategy, graphic design, art direction, creative direction, packaging, web development, 3D and animation.';
+div2sec1.appendChild(div2sec1Content);
+
+// Creo el div3 dentro de la sección
+const div3 = document.createElement('div');
+div3.className = 'div3';
+
+// Creo div ny-header dentro de div3
+const nyHeader = document.createElement('div');
+nyHeader.className = 'ny-header';
+const nyHeaderContent = document.createElement('p');
+nyHeaderContent.textContent = '6 Johns Ln New York, NY';
+nyHeader.appendChild(nyHeaderContent);
+
+// Crear div links dentro de div3
+const links = document.createElement('div');
+links.className = 'links';
+const link1 = document.createElement('li');
+const link1a = document.createElement('a');
+link1a.href = 'mailto:hello@penthouse.studio';
+link1a.textContent = 'hello@penthouse.studio';
+link1.appendChild(link1a);
+const link2 = document.createElement('li');
+const link2a = document.createElement('a');
+link2a.href = 'https://www.instagram.com';
+link2a.textContent = 'Instagram';
+link2.appendChild(link2a);
+const link3 = document.createElement('li');
+const link3a = document.createElement('a');
+link3a.href = 'https://www.behance.net';
+link3a.textContent = 'Behance';
+link3.appendChild(link3a);
+links.appendChild(link1);
+links.appendChild(link2);
+links.appendChild(link3);
+
+// Crear div onoff dentro de div3
+const onoff = document.createElement('div');
+onoff.className = 'onoff';
+const onoffImg = document.createElement('img');
+onoffImg.src = 'img/on-off.png';
+onoffImg.alt = '';
+onoff.appendChild(onoffImg);
+
+
+nyHeader.appendChild(nyHeaderContent);
+div3.appendChild(nyHeader);
+div3.appendChild(links);
+div3.appendChild(onoff);
+
+menusec1.appendChild(div1sec1);
+menusec1.appendChild(div2sec1);
+menusec1.appendChild(div3);
+sec1.appendChild(menusec1);
+
+// Crear el segundo div de la sección
+const logoSec1 = document.createElement('div');
+logoSec1.className = 'logo-sec1';
+const logoSec1Img = document.createElement('img');
+logoSec1Img.src = 'img/pen-logo.png';
+logoSec1Img.alt = '';
+logoSec1.appendChild(logoSec1Img);
+
+// Agregar la sección y el segundo div al doc
+sec1.appendChild(logoSec1);
+roothome.appendChild(sec1);
+
+
+// CREO LAS SECTIONS EN ROOTSECTIONS
+
+const sectionTexts = [
+    [
+        ['Client', 'SleepFuel'],
+        ['Year', '2023'],
+        ['Scope', 'Brand identity, web design, packaging'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'Molly Smiles'],
+        ['Year', '2022'],
+        ['Scope', 'Brand identity, web design'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'DILA Technologies'],
+        ['Year', '2023'],
+        ['Scope', 'Brand identity, web design'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'NOT YOUR / MONA'],
+        ['Year', '2021'],
+        ['Scope', 'Brand identity, packaging'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'Cozyla'],
+        ['Year', '2023'],
+        ['Scope', 'Brand identity, packaging'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'SwapWear'],
+        ['Year', '2022'],
+        ['Scope', 'Brand identity'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+    [
+        ['Client', 'Materia'],
+        ['Year', '2021'],
+        ['Scope', 'Brand identity'],
+        ['Vegan handbags brand designed to stand out in the luxury space.','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'],
+        ['Visit full project', 'Visit Website'],
+    ],
+];
+
+
+// Función para crear la sección
+function createSection(sectionNumber, images, texts, sectionData) {
+    const section = document.createElement('section');
+    section.className = `sec${sectionNumber}`;
+
+    // Crear el div de menú
+    const menu = document.createElement('div');
+    menu.className = 'menu';
+
+    // Crear div1
+    const div1 = document.createElement('div');
+    div1.className = 'div1';
+    const infoToggle = document.createElement('p');
+    infoToggle.id = 'info-toggle';
+    infoToggle.textContent = '+info';
+    div1.appendChild(infoToggle);
+
+    // Crear div2sec2
+    const div2sec2 = document.createElement('div');
+    div2sec2.className = 'div2sec2';
+    const div2sec2Content = document.createElement('p');
+    div2sec2Content.textContent = texts[0];
+    div2sec2.appendChild(div2sec2Content);
+
+    // Crear div3
+    const div3 = document.createElement('div');
+    div3.className = 'div3';
+
+    // Crear brandsec2
+    const brandsec2 = document.createElement('div');
+    brandsec2.className = 'brandsec2';
+    const brandsec2Content = document.createElement('p');
+    brandsec2Content.textContent = texts[1];
+    brandsec2.appendChild(brandsec2Content);
+
+    // Crear divsec2
+    const divsec2 = document.createElement('div');
+    divsec2.className = 'divsec2';
+    const divsec2Content = document.createElement('p');
+    divsec2Content.textContent = texts[2];
+    divsec2.appendChild(divsec2Content);
+
+    // Agregar los elementos al menú
+    div3.appendChild(brandsec2);
+    div3.appendChild(divsec2);
+    menu.appendChild(div1);
+    menu.appendChild(div2sec2);
+    menu.appendChild(div3);
+
+    section.appendChild(menu);
+
+    // Crear el div del carrusel
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel';
+
+    // Crear el contenedor del carrusel
+    const carouselContainer = document.createElement('div');
+    carouselContainer.className = 'carousel-container';
+
+    // Crear las imágenes del carrusel
+    for (let i = 0; i < images.length; i++) {
+        const img = document.createElement('img');
+        img.src = images[i];
+        img.alt = `Image ${i + 1}`;
+        img.className = `img${i + 1}`;
+        carouselContainer.appendChild(img);
+    }
+
+    // Agregar el contenedor del carrusel al div del carrusel
+    carousel.appendChild(carouselContainer);
+
+    section.appendChild(carousel);
+
+
+    const infoitems = document.createElement('div');
+    infoitems.className = 'infoitems';
+    infoitems.style.transform = 'translateX(-100%)'; // Inicialmente lo desplazo hacia la izq
+
+    // Array con los textos personalizados para cada sección
+
+    const currentSectionTexts = sectionTexts[sectionNumber - 2];
+
+    currentSectionTexts.forEach((sectionData, index) => {
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = `info${index + 1}`;
+
+        const clientDiv = document.createElement('div');
+        clientDiv.className = 'client-container';
+        const clientP = document.createElement('p');
+        clientP.textContent = sectionData[0];
+        clientDiv.appendChild(clientP);
+
+        const yearDiv = document.createElement('div');
+        yearDiv.className = 'year-container';
+        const yearP = document.createElement('p');
+        yearP.textContent = sectionData[1];
+        yearDiv.appendChild(yearP);
+
+        const scopeDiv = document.createElement('div');
+        scopeDiv.className = 'scope-container';
+        const scopeP = document.createElement('p');
+        scopeP.textContent = sectionData[2];
+        scopeDiv.appendChild(scopeP);
+
+        const descriptionDiv = document.createElement('div');
+        descriptionDiv.className = 'description-container';
+        const descriptionP = document.createElement('p');
+        descriptionP.textContent = sectionData[3];
+        descriptionDiv.appendChild(descriptionP);
+
+        const visitDiv = document.createElement('div');
+        visitDiv.className = 'visit-container';
+        const visitP = document.createElement('p');
+        visitP.textContent = sectionData[4];
+        visitDiv.appendChild(visitP);
+    
+
+
+        sectionDiv.appendChild(clientDiv);
+        sectionDiv.appendChild(yearDiv);
+        sectionDiv.appendChild(scopeDiv);
+        sectionDiv.appendChild(descriptionDiv);
+        sectionDiv.appendChild(visitDiv);
+
+
+        infoitems.appendChild(sectionDiv);
+    });
+
+    section.appendChild(infoitems);
+
+    infoToggle.style.cursor = "pointer";
+
+    // Crear evento de clic para cambiar a -close 
+    infoToggle.addEventListener('click', function () {
+        if (infoToggle.textContent === '+info') {
+            infoToggle.textContent = '-close';
+            infoitems.style.transform = 'translateX(0)'; // Muestra infoitems
+        } else {
+            infoToggle.textContent = '+info';
+            infoitems.style.transform = 'translateX(-110%)'; // Oculta infoitems
+        }
+    });
+
+
+    return section;
+}
+
+
+
+
+const sectionData = [
+    {
+        images: ['img/sleep-pic.png', 'img/sleep-pic2.png', 'img/sleep-pic3.png'],
+        div2sec2Text: 'SleepFuel',
+        brandsec2Text: 'Brand identity, web design, packaging',
+        divsec2Text: '2023',
+    },
+    {
+        images: ['img/molly-pic.png', 'img/molly-pic2.png', 'img/molly-pic3.png'],
+        div2sec2Text: 'Molly Smiles',
+        brandsec2Text: 'Brand identity, web design',
+        divsec2Text: '2023',
+    },
+    {
+        images: ['img/dil-pic.png', 'img/dil-pic2.png', 'img/dil-pic3.png'],
+        div2sec2Text: 'DILA Technologies',
+        brandsec2Text: 'Brand identity, web design',
+        divsec2Text: '2023',
+    },
+    {
+        images: ['img/mona-img1.jpg', 'img/mona-img2.jpg', 'img/mona-img3.jpg'],
+        div2sec2Text: 'NOT YOUR / MONA',
+        brandsec2Text: 'Brand identity,  packaging',
+        divsec2Text: '2021',
+    },
+    {
+        images: ['img/coz-pic.png', 'img/coz-pic1.png', 'img/coz-pic2.png'],
+        div2sec2Text: 'Cozyla',
+        brandsec2Text: 'Brand identity,  packaging',
+        divsec2Text: '2023',
+    },
+    {
+        images: ['img/street-pic.png', 'img/street-pic2.png', 'img/street-pic3.png'],
+        div2sec2Text: 'SwapWear',
+        brandsec2Text: 'Brand identity',
+        divsec2Text: '2022',
+    },
+    {
+        images: ['img/mat-pic.png', 'img/mat-pic2.png', 'img/mat-pic3.png'],
+        div2sec2Text: 'Materia',
+        brandsec2Text: 'Brand identity',
+        divsec2Text: '2021',
+    },
+];
+
+for (let i = 2; i <= 8; i++) {
+    const section = createSection(i, sectionData[i - 2].images, [
+        sectionData[i - 2].div2sec2Text,
+        sectionData[i - 2].brandsec2Text,
+        sectionData[i - 2].divsec2Text
+    ]);
+    rootsections.appendChild(section);
+}
+
+
+
+
+
+
+// ANIMAR CARRUSELES
+
+function animateCarouselOnClick(carousel) {
+    const container = carousel;
+    const images = container.querySelectorAll('img');
+    let currentIndex = 0;
+
+    //cambiar al siguiente slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const imageWidth = images[0].clientWidth;
+        const offset = -currentIndex * imageWidth;
+        container.style.transform = `translateX(${offset}px)`;
+    }
+
+    // cambiar los slides al hacer clic
+    images.forEach((image) => {
+        image.addEventListener('click', nextSlide);
+    });
+
+    // Inicia el carrusel
+    updateCarousel();
+}
+
+const carousels = document.querySelectorAll('.carousel-container');
+carousels.forEach(animateCarouselOnClick);
+
+
+
+//CAMBIO DE +INFO A -CLOSE Y APARECE MENU
+
+// Función para alternar +info y -close en una sección
+function toggleInfo(section) {
+    const infoToggle = section.querySelector('.div1 p');
+    const infoItems = section.querySelector('.infoitems');
+
+    infoToggle.addEventListener('click', function () {
+        if (infoItems.classList.contains('infoitems-open')) {
+            infoItems.classList.remove('infoitems-open');
+            infoToggle.textContent = '+info';
+        } else {
+            infoItems.classList.add('infoitems-open');
+            infoToggle.textContent = '-close';
+        }
+    });
+}
+
+
+// Función para arrimar a carousel a la derecha cuando se despliega infoitems
+function toggleInfo(section) {
+    const infoToggle = section.querySelector('.div1 p');
+    const infoItems = section.querySelector('.infoitems');
+    const carousel = section.querySelector('.carousel');
+
+    infoToggle.addEventListener('click', function () {
+        if (infoItems.classList.contains('infoitems-open')) {
+            infoItems.classList.remove('infoitems-open');
+            infoToggle.textContent = '+info';
+            // Volver a la posición original del carrusel
+            carousel.style.transform = 'translateX(0)';
+        } else {
+            infoItems.classList.add('infoitems-open');
+            infoToggle.textContent = '-close';
+            // Mover el carrusel 60px a la derecha
+            carousel.style.transform = 'translateX(350px)';
+        }
+    });
+}
+
+const sections = document.querySelectorAll('.rootsections section');
+sections.forEach(toggleInfo);
+
+
+
+
+
+
+//FOOTER
+
+// Crear el elemento footer
+const footer = document.createElement('footer');
+footer.className = 'footerdiv';
+
+// Crear el primer div dentro del footer (info1footer)
+const info1footer = document.createElement('div');
+info1footer.className = 'info1footer';
+
+// Crear y agregar los párrafos de información al info1footer
+const info1footerTexts = [
+    "Penthouse® is a creative company of nine working remotely from New York, dedicated to designing holistic brand identities founded on storytelling, for ambitious start-ups and category-defining products.",
+    "Services include brand strategy, graphic design, art direction, creative direction, packaging, web development, 3D and animation",
+    "6 Johns Ln New York, NY",
+    "hello@penthouse.studio",
+    "Instagram Behance",
+];
+
+info1footerTexts.forEach((text, index) => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = text;
+    paragraph.className = `info1footer-paragraph-${index + 1}`; // Agregar clases únicas
+    info1footer.appendChild(paragraph);
+});
+
+// Crear el segundo div dentro del footer (info2footer)
+const info2footer = document.createElement('div');
+info2footer.className = 'info2footer';
+
+// Crear el párrafo y el enlace para "Go back to top"
+const info2footerText = "© All rights Reserved by Penthouse Studio";
+const info2footerParagraph = document.createElement('p');
+info2footerParagraph.textContent = info2footerText; 
+const goBackLink = document.createElement('li');
+const goBackAnchor = document.createElement('a');
+goBackAnchor.href = "#"; 
+goBackAnchor.textContent = "Go back to top";
+goBackLink.appendChild(goBackAnchor);
+
+// Agregar el párrafo al info2footer
+info2footer.appendChild(info2footerParagraph);
+info2footer.appendChild(goBackLink);
+
+// Crear el tercer div dentro del footer (imgfooter)
+const imgfooter = document.createElement('div');
+imgfooter.className = 'imgfooter';
+
+// Crear la imagen del logo
+const logoImg = document.createElement('img');
+logoImg.src = 'img/pen-logo.png';
+logoImg.alt = '';
+
+// Agregar la imagen al div imgfooter
+imgfooter.appendChild(logoImg);
+
+// Agregar los tres divs al footer
+footer.appendChild(info1footer);
+footer.appendChild(info2footer);
+footer.appendChild(imgfooter);
+
+// Agregar el footer al final del body
+document.body.appendChild(footer);
+
+
+
+//CURTAIN EFFECT EN ROOTHOME
+
+// Función para manejar el evento de scroll
+function handleScroll() {
+
+    const scrollY = window.scrollY; //Scroll vertical
+  
+    //altura inicial de roothome y la altura a la que se va a reducir para destapar
+    const initialHeight = 100; 
+    const reducedHeight = 10; 
+  
+    // La altura a la que se activará la animación 
+    const scrollThreshold = 15;
+  
+    if (scrollY > scrollThreshold) {
+      // Para reducir la altura de roothome progresivamente pongo
+      roothome.style.height = `${initialHeight - (scrollY - scrollThreshold)}vh`;
+  
+      // Hacer aparecer rootheader y rootsections
+      rootheader.style.opacity = 1;
+      rootsections.style.opacity = 1;
+    } else {
+      // Restauro la altura inicial de roothome
+      roothome.style.height = `${initialHeight}vh`;
+  
+      // Oculto rootheader y rootsections
+      rootheader.style.opacity = 0;
+      rootsections.style.opacity = 0;
+    }
+  }
+  
+  // un event de scroll
+  window.addEventListener('scroll', handleScroll);
+
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penthouse</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+
+    <div class="roothome">
+
+    </div>
+
+    <div class="rootheader">
+
+        <header class="fixed-header">
+
+            <div class="menu">
+    
+                <div class="div1">
+                    <img src="img/pen-logo.png" alt="">
+                </div>
+    
+                <div class="div2">
+    
+                    <p>Selected Projects</p>
+                </div>
+    
+                <div class="div3">
+    
+                    <div class="ny-header">
+                        <p>6 Johns Ln
+                            New York, NY
+                        </p>
+                    </div>
+        
+                    <div class="links">
+                        <li>
+                            <a href="hello@penthouse.studio">hello@penthouse.studio</a>
+                        </li>
+                        <li>
+                            <a href="Instagram">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="Behance">Behance</a>
+                        </li>
+                    </div>
+                    <div class="onoff">
+                        <img src="img/on-off.png" alt="">
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </header>
+
+    </div>
+
+    <div class="rootsections">
+
+    </div>
+    
+
+    <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+CREAR SECTIONS
+
+// Función para crear una sección con la estructura deseada
+function createSection(sectionNumber, image1Src, image2Src, image3Src, text1, text2, text3, text4, text5, text6) {
+    const section = document.createElement('section');
+    section.className = `sec${sectionNumber}`;
+
+    // Crear el div de menú
+    const menu = document.createElement('div');
+    menu.className = 'menu';
+
+    // Crear div1
+    const div1 = document.createElement('div');
+    div1.className = 'div1';
+    const infoToggle = document.createElement('p');
+    infoToggle.id = 'info-toggle';
+    infoToggle.textContent = '+info';
+    div1.appendChild(infoToggle);
+
+    // Crear div2sec2
+    const div2sec2 = document.createElement('div');
+    div2sec2.className = 'div2sec2';
+    const div2sec2Content = document.createElement('p');
+    div2sec2Content.textContent = 'Molly Smiles';
+    div2sec2.appendChild(div2sec2Content);
+
+    // Crear div3
+    const div3 = document.createElement('div');
+    div3.className = 'div3';
+
+    // Crear brandsec2
+    const brandsec2 = document.createElement('div');
+    brandsec2.className = 'brandsec2';
+    const brandsec2Content = document.createElement('p');
+    brandsec2Content.textContent = 'Brand identity, web design';
+    brandsec2.appendChild(brandsec2Content);
+
+    // Crear divsec2
+    const divsec2 = document.createElement('div');
+    divsec2.className = 'divsec2';
+    const divsec2Content = document.createElement('p');
+    divsec2Content.textContent = '2023';
+    divsec2.appendChild(divsec2Content);
+
+    // Agregar los elementos al menú
+    div3.appendChild(brandsec2);
+    div3.appendChild(divsec2);
+    menu.appendChild(div1);
+    menu.appendChild(div2sec2);
+    menu.appendChild(div3);
+
+    section.appendChild(menu);
+
+    // Crear el div del carrusel
+    const carousel = document.createElement('div');
+    carousel.className = 'carousel';
+
+    // Crear el contenedor del carrusel
+    const carouselContainer = document.createElement('div');
+    carouselContainer.className = 'carousel-container';
+
+    // Crear las imágenes del carrusel
+    for (let i = 1; i <= 3; i++) {
+        const img = document.createElement('img');
+        img.src = `img/sleep-pic${i}.png`;
+        img.alt = `Image ${i}`;
+        img.className = `img${i}`;
+        carouselContainer.appendChild(img);
+    }
+
+    // Agregar el contenedor del carrusel al div del carrusel
+    carousel.appendChild(carouselContainer);
+
+    section.appendChild(carousel);
+
+    // Crear el div de información
+    const infoItems = document.createElement('div');
+    infoItems.className = 'infoitems';
+    infoItems.id = 'info-container';
+
+    // Crear el contenido de item1
+    const item1Content = [
+        'Client\nYear\nScope',
+        'Molly Smiles\n2023\nBrand identity, web design, packaging',
+    ];
+
+    // Crear el contenido de text3
+    const text3Content = [
+        'Vegan handbags brand designed to stand out in the luxury space.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    ];
+
+    // Crear el contenido de text4
+    const text4Content = ['View full project', 'Visit website'];
+
+    // Crear los elementos de item1
+    const item1 = document.createElement('div');
+    item1.className = 'item1';
+
+    item1Content.forEach((content, index) => {
+        const textDiv = document.createElement('div');
+        textDiv.className = `text${index + 1}`;
+        const textP = document.createElement('p');
+        textP.textContent = content;
+        textDiv.appendChild(textP);
+        item1.appendChild(textDiv);
+    });
+
+    // Crear el div de infoitems2
+    const infoItems2 = document.createElement('div');
+    infoItems2.className = 'infoitems2';
+    infoItems2.id = 'info-details';
+
+    // Crear los elementos de text3 y text4
+    text3Content.forEach((content, index) => {
+        const textDiv = document.createElement('div');
+        textDiv.className = `text3`;
+        const textP = document.createElement('p');
+        textP.textContent = content;
+        textDiv.appendChild(textP);
+        infoItems2.appendChild(textDiv);
+    });
+
+    text4Content.forEach((content, index) => {
+        const textDiv = document.createElement('div');
+        textDiv.className = `text4`;
+        const textP = document.createElement('p');
+        textP.textContent = content;
+        textDiv.appendChild(textP);
+        infoItems2.appendChild(textDiv);
+    });
+
+    // Agregar los elementos al div de información
+    infoItems.appendChild(item1);
+    infoItems.appendChild(infoItems2);
+
+    section.appendChild(infoItems);
+
+    return section;
+}
+
+// Obtener el elemento rootsections
+const rootsections = document.querySelector('.rootsections');
+
+// Crear e insertar las secciones 2 a 8
+for (let i = 2; i <= 8; i++) {
+    const section = createSection(i);
+    rootsections.appendChild(section);
+}
+
+
+MENU TOGGLE CON JS
+
+const infoContainer = document.createElement('div');
+infoContainer.className = 'infoitems';
+infoContainer.id = 'info-container';
+
+const item1 = document.createElement('div');
+item1.className = 'item1';
+
+const text1 = document.createElement('div');
+text1.className = 'text1';
+const text1Content = document.createElement('p');
+text1Content.textContent = 'Client\nYear\nScope';
+text1.appendChild(text1Content);
+
+const text2 = document.createElement('div');
+text2.className = 'text2';
+const text2Content = document.createElement('p');
+text2Content.textContent = 'Molly Smiles\n2023\nBrand identity, web design, packaging';
+text2.appendChild(text2Content);
+
+item1.appendChild(text1);
+item1.appendChild(text2);
+
+const infoDetails = document.createElement('div');
+infoDetails.className = 'infoitems2';
+infoDetails.id = 'info-details';
+
+const text3 = document.createElement('div');
+text3.className = 'text3';
+const text3Content = document.createElement('p');
+text3Content.textContent = 'Vegan handbags brand designed to stand out in the luxury space.';
+text3.appendChild(text3Content);
+
+const text4 = document.createElement('div');
+text4.className = 'text4';
+const text4Content = document.createElement('p');
+text4Content.textContent = 'View full project\nVisit website';
+text4.appendChild(text4Content);
+
+infoDetails.appendChild(text3);
+infoDetails.appendChild(text4);
+
+infoContainer.appendChild(item1);
+infoContainer.appendChild(infoDetails);
+
+// Ahora puedes agregar infoContainer al elemento contenedor de tu elección en el documento.
+
+

@@ -1,0 +1,65 @@
+/*PARA QUE APAREZCA +INFO Y -CLOSE CON SU INFO*/ 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const infoToggle = document.getElementById('info-toggle');
+    const infoContainer = document.getElementById('info-container');
+    const infoDetails = document.getElementById('info-details');
+
+    // Mostrar info-container al cargar la página
+    infoContainer.style.display = 'block';
+
+    infoToggle.addEventListener('click', function () {
+        if (infoContainer.style.transform === 'translateX(-100%)') {
+            // Muestra el div de información en el lado izquierdo
+            infoContainer.style.transform = 'translateX(0)';
+            infoToggle.innerText = "-close"; // Cambia el texto del botón
+
+        } else {
+            // Oculta el div de información
+            infoContainer.style.transform = 'translateX(-100%)';
+            infoToggle.innerText = "+info"; // Cambia el texto del botón
+
+        }
+    });
+});
+
+
+
+/*CARRUSELES*/
+const carousels = document.querySelectorAll('.carousel');
+
+carousels.forEach((carousel) => {
+    const container = carousel.querySelector('.carousel-container');
+    const images = carousel.querySelectorAll('img');
+    let currentIndex = 0;
+    const imageWidth = images[0].clientWidth;
+
+    // Función para cambiar al siguiente slide
+    function nextSlide() {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Si es la última imagen, retrocede al primer slide
+        }
+        container.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    }
+
+    // F para cambiar al slide anterior
+    function prevSlide() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = images.length - 1; // Si es el primer slide, avanza al último
+        }
+        container.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    }
+
+    // Agrega eventos al hacer clic en las imágenes
+    images.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            nextSlide();
+        });
+    });
+});
+
+
