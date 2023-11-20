@@ -824,14 +824,14 @@ toggleInput.addEventListener('click', function () {
     } else {
         // Quitar la clase del body
         body.classList.remove('dark-mode');
-        imgDiv1.src = 'img/pen-logo.png';
-        sec1.style.backgroundColor = "black";
         logoSec1Img.src = 'img/pen-logo.png';
-        infoitems.style.backgroundColor = "black";
+        sec1.style.backgroundColor = "black";
         rootsections.style.backgroundColor = "black";  
         header.style.backgroundColor = "black";
         img.src = 'img/pen-logo.png';
+        imgDiv1.src = 'img/pen-logo.png';
         menu.style.backgroundColor = "black";
+        infoitems.style.backgroundColor = "black";
 
     }
 });
