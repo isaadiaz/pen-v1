@@ -323,6 +323,7 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
 
     // Crear el div de despliegue
     const despliegue = document.createElement('div');
+    despliegue.id = 'despliegue';
     despliegue.className = 'despliegue';
 
     // Crear el div del carrusel
@@ -426,8 +427,6 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
 
     section.appendChild(despliegue);
 
-    infoToggle.style.cursor = "pointer";
-
     const isMobile2 = window.matchMedia("(max-width: 834px)").matches;
     const isMobile = window.matchMedia("(max-width: 430px)").matches;
 
@@ -435,22 +434,27 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
 
     
     section.addEventListener('mousemove', function (event) {
-        const mouseX = event.clientX; // Posición X del mouse
-    
-        if (mouseX <= leftRangeWidth) {
-            // Si el mouse está dentro del rango, muestro a "infoitems" y cambio el texto a "-close"
-            infoitems.style.transform = 'translateX(0)';
-            carousel.style.transform = 'translateX(350px)';
-            carousel.style.transform = isMobile2 ? 'flex' : 'translateX(300px)';
-            carousel.style.transform = isMobile ? 'none' : 'translateX(350px)';
-            infoToggle.textContent = 'Close';
-        } else {
-            // Si el mouse está fuera del rango, oculto "infoitems" y cambi el texto a "+info"
-            infoitems.style.transform = 'translateX(-100%)';
-            carousel.style.transform = 'translateX(0)';
-            carousel.style.transform = isMobile2 ? 'flex' : 'translateX(0)';
-            carousel.style.transform = isMobile ? 'none' : 'translateX(0)';
-            infoToggle.textContent = 'Info';
+        // si el despliegue fue activado con el click puedo ver a infoitems
+        if (despliegue.classList.contains('despliegue-activo')) {
+
+            infoToggle.style.cursor = "pointer";
+            const mouseX = event.clientX; // Posición X del mouse
+        
+            if (mouseX <= leftRangeWidth) {
+                // Si el mouse está dentro del rango, muestro a "infoitems" y cambio el texto a "-close"
+                infoitems.style.transform = 'translateX(0)';
+                carousel.style.transform = 'translateX(350px)';
+                carousel.style.transform = isMobile2 ? 'flex' : 'translateX(300px)';
+                carousel.style.transform = isMobile ? 'none' : 'translateX(350px)';
+                infoToggle.textContent = 'Close';
+            } else {
+                // Si el mouse está fuera del rango, oculto "infoitems" y cambio el texto a "+info"
+                infoitems.style.transform = 'translateX(-100%)';
+                carousel.style.transform = 'translateX(0)';
+                carousel.style.transform = isMobile2 ? 'flex' : 'translateX(0)';
+                carousel.style.transform = isMobile ? 'none' : 'translateX(0)';
+                infoToggle.textContent = 'Info';
+            }
         }
     });
     
@@ -464,6 +468,13 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
         } else {
             rootheader.classList.remove('fixed-header');
         }
+    });
+
+    div2sec2.style.cursor = "pointer";
+
+    div2sec2Content.addEventListener('click', function() {
+        despliegue.classList.toggle('despliegue-activo');
+        div2sec2.style.cursor = "pointer";
     });
 
     return section;

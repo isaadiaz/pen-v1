@@ -39,6 +39,9 @@ body a {
     padding-left: 0%;
     background-color: black;
     z-index: 1;
+    width: 100%;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 
 .despliegue {
@@ -2146,3 +2149,14 @@ margin-left: 12%;
 }
 
 
+/*DESPLEGABLE*/
+
+.despliegue {
+    display: none;
+    transition: transform 0.3s smooth ease-in-out;
+}
+
+.despliegue-activo {
+    display: block;
+    transform: translateY(0);
+}
