@@ -66,10 +66,25 @@ nyHeader2.appendChild(liEmail);
 // Crear el div "onoff2" dentro de div32
 const onoff = document.createElement('div');
 onoff.className = 'onoff';
-const imgOnOff = document.createElement('img');
-imgOnOff.src = 'img/on-off.png';
-imgOnOff.alt = '';
-onoff.appendChild(imgOnOff);
+
+
+// Crear un nuevo toggleSwitch para onoff
+const toggleSwitchOnOff = document.createElement('label');
+toggleSwitchOnOff.className = 'switch';
+
+const toggleInputOnOff = document.createElement('input');
+toggleInputOnOff.type = 'checkbox';
+toggleInputOnOff.id = 'toggle-onoff';
+toggleInputOnOff.checked = false;
+
+const sliderOnOff = document.createElement('span');
+sliderOnOff.className = 'slider round';
+
+toggleSwitchOnOff.appendChild(toggleInputOnOff);
+toggleSwitchOnOff.appendChild(sliderOnOff);
+
+// Agregar el nuevo toggleSwitch al div "onoff"
+onoff.appendChild(toggleSwitchOnOff);
 
 // Agregar los elementos creados al header
 div32.appendChild(links2);
@@ -149,8 +164,6 @@ links.appendChild(link2);
 links.appendChild(link3);
 
 
-
-
 //Creo switchbutton q este dentro del div4
 const toggleSwitch = document.createElement('label');
 toggleSwitch.className = 'switch';
@@ -163,16 +176,13 @@ toggleInput.checked = false;
 const slider = document.createElement('span');
 slider.className = 'slider round';
 
-
 toggleSwitch.appendChild(toggleInput);
 toggleSwitch.appendChild(slider);
-
 
 nyHeader.appendChild(nyHeaderContent);
 div3.appendChild(nyHeader);
 div3.appendChild(links);
 div4.appendChild(toggleSwitch);
-
 
 containerdivsec.appendChild(div1sec1);
 containerdivsec.appendChild(div2sec1);
@@ -194,7 +204,6 @@ logoSec1.appendChild(logoSec1Img);
 //sec1.appendChild(logoSec1);
 roothome.appendChild(sec1);
 roothome.appendChild(logoSec1);
-
 
 //CREO MIS LINKS DE CADA SECTION
 
@@ -261,7 +270,6 @@ const sectionTexts = [
     ],
 ];
 
-
 // Función para crear la sección
 function createSection(sectionNumber, images, texts, sectionData, LinksProject, LinksWebsite) {
     const section = document.createElement('section');
@@ -313,6 +321,10 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
 
     section.appendChild(menu);
 
+    // Crear el div de despliegue
+    const despliegue = document.createElement('div');
+    despliegue.className = 'despliegue';
+
     // Crear el div del carrusel
     const carousel = document.createElement('div');
     carousel.className = 'carousel';
@@ -334,18 +346,13 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
         }
     }
     
-
-    // Agregar el contenedor del carrusel al div del carrusel
     carousel.appendChild(carouselContainer);
-
+    despliegue.appendChild(carousel);
     section.appendChild(carousel);
-
 
     const infoitems = document.createElement('div');
     infoitems.className = 'infoitems';
     infoitems.style.transform = 'translateX(-100%)'; // Inicialmente lo desplazo hacia la izq
-
-
 
     //links de infoitems 
 
@@ -363,8 +370,6 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
     websiteLinkA.href = LinksWebsite[sectionNumber - 2].link;
     websiteLinkA.textContent = LinksWebsite[sectionNumber - 2].name;
     websiteLink.appendChild(websiteLinkA);
-
-
 
     const currentSectionTexts = sectionTexts[sectionNumber - 2];
 
@@ -408,7 +413,6 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
         sectionDiv.appendChild(descriptionDiv);
         sectionDiv.appendChild(visitDiv);
 
-
         infoitems.appendChild(sectionDiv);
         linksDiv.appendChild(visitLink);
         linksDiv.appendChild(websiteLink);
@@ -417,7 +421,10 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
         infoitems.appendChild(linksDiv);
     });
 
-    section.appendChild(infoitems);
+    despliegue.appendChild(infoitems);
+    despliegue.appendChild(carousel);
+
+    section.appendChild(despliegue);
 
     infoToggle.style.cursor = "pointer";
 
@@ -461,7 +468,6 @@ function createSection(sectionNumber, images, texts, sectionData, LinksProject, 
 
     return section;
 }
-
 
 const sectionData = [
     {
@@ -520,8 +526,6 @@ for (let i = 2; i <= 8; i++) {
     rootsections.appendChild(section);
 }
 
-
-
 // ANIMAR CARRUSELES
 
 function animateCarouselOnClick(carousel) {
@@ -552,93 +556,6 @@ function animateCarouselOnClick(carousel) {
 
 const carousels = document.querySelectorAll('.carousel-container');
 carousels.forEach(animateCarouselOnClick);
-
-
-/*
-// Crear el elemento footer
-const footer = document.createElement('footer');
-footer.className = 'footerdiv';
-
-// Crear el primer div dentro del footer (info1footer)
-const info1footer = document.createElement('div');
-info1footer.className = 'info1footer';
-
-// Crear y agregar los párrafos de información al info1footer
-const info1footerTexts = [
-    "Penthouse® is a creative company of nine working remotely from New York, dedicated to designing holistic brand identities founded on storytelling, for ambitious start-ups and category-defining products.",
-    "Services include brand strategy, graphic design, art direction, creative direction, packaging, web development, 3D and animation.",
-    "167 Canal St. New York, NY",
-    "hello@penthouse.studio",
-    "Instagram",
-];
-
-const socialLinks = [
-    {
-        text: "Instagram",
-        url: "https://www.instagram.com/"
-    },
-    {
-        text: "Behance",
-        url: "https://www.behance.net/"
-    }
-];
-
-info1footerTexts.forEach((text, index) => {
-    const paragraph = document.createElement('p');
-    paragraph.className = `info1footer-paragraph-${index + 1}`; // Agregar clases distintas a cada uno
-
-    if (index === 3) {
-        paragraph.textContent = text; // Mantener el correo "hello@penthouse.studio" tal como está
-    } else if (index === 4) {
-        socialLinks.forEach(linkData => {
-            const link = document.createElement('a');
-            link.href = linkData.url;
-            link.textContent = linkData.text;
-            paragraph.appendChild(link);
-        });
-    } else {
-        paragraph.textContent = text;
-    }
-
-    info1footer.appendChild(paragraph);
-});
-
-// Crear el segundo div dentro del footer (info2footer)
-const info2footer = document.createElement('div');
-info2footer.className = 'info2footer';
-
-// Crear el párrafo y el enlace para "Go back to top"
-const info2footerText = "© All rights Reserved by Penthouse Studio";
-const info2footerParagraph = document.createElement('p');
-info2footerParagraph.textContent = info2footerText;
-const goBackLink = document.createElement('a');
-goBackLink.href = "#";
-goBackLink.textContent = "Go back to top";
-
-// Agregar el párrafo al info2footer
-info2footer.appendChild(info2footerParagraph);
-info2footer.appendChild(goBackLink);
-
-// Crear el tercer div dentro del footer (imgfooter)
-const imgfooter = document.createElement('div');
-imgfooter.className = 'imgfooter';
-
-// Crear la imagen del logo
-const logoImg = document.createElement('img');
-logoImg.src = 'img/pen-logo.png';
-logoImg.alt = '';
-
-// Agregar la imagen al div imgfooter
-imgfooter.appendChild(logoImg);
-
-// Agregar los tres divs al footer
-footer.appendChild(info1footer);
-footer.appendChild(info2footer);
-footer.appendChild(imgfooter);
-
-// Agregar el footer al final del body
-document.body.appendChild(footer);
-*/
 
 //FOOTER NUEVO
 
@@ -686,8 +603,8 @@ f2Div2.appendChild(f2Div2Li);
 const f2Div3 = document.createElement('div');
 const f2Div3Li1 = document.createElement('li');
 const f2Div3Li1A = document.createElement('a');
+f2Div3Li1A.textContent = "Instagram";
 f2Div3Li1A.href = 'https://www.instagram.com/othila/';
-f2Div2LiA.textContent = 'Instagram';
 f2Div3Li1.appendChild(f2Div3Li1A);
 
 const f2Div3Li2 = document.createElement('li');
@@ -737,9 +654,6 @@ rootfooter.appendChild(footer);
 footer.appendChild(f2);
 rootfooter.appendChild(f3);
 rootfooter.appendChild(imgfooterlogo);
-
-
-
 
 //SCROLL Q DESATAPA
 
@@ -798,41 +712,49 @@ function setElementOpacity(element, opacity) {
 
 //SWITCH BUTTON 
 
-
-// Agrega una clase para el estado inicial apagado
-
-
-
-//para cambiarle color al background
 const body = document.body;
 
-toggleInput.addEventListener('click', function () {
-    console.log(this.checked, "this.cheked");
-    // Verificar si el toggle switch está en la posición ON
-    if (toggleInput.checked) {
-        // Agregar una clase al body
-        body.classList.add('dark-mode');
-        logoSec1Img.src = "img/penimgnegro.png";
-        sec1.style.backgroundColor = "white"; 
-        rootsections.style.backgroundColor = "white"; 
-        header.style.backgroundColor = "white";
-        img.src = "img/penimgnegro.png";
-        imgDiv1.src = "img/penimgnegro.png";
-        menu.style.backgroundColor = "white";
-        infoitems.style.backgroundColor = "white"; 
 
-    } else {
-        // Quitar la clase del body
+function toggleDarkMode() {
+    // Check if the toggle switch is in the ON position
+    const isDarkMode = toggleInput.checked || toggleInputOnOff.checked;
+
+    function applyDarkModeStyles() {
+        body.classList.add('dark-mode');
+        logoSec1Img.src = 'img/penimgnegro.png';
+        sec1.style.backgroundColor = 'white';
+        rootsections.style.backgroundColor = 'white';
+        header.style.backgroundColor = 'white';
+        img.src = 'img/penimgnegro.png';
+        imgDiv1.src = 'img/penimgnegro.png';
+        menu.style.backgroundColor = 'white';
+        infoitems.style.backgroundColor = 'white';
+    }
+    
+    // Function to remove dark mode styles
+    function removeDarkModeStyles() {
         body.classList.remove('dark-mode');
         logoSec1Img.src = 'img/pen-logo.png';
-        sec1.style.backgroundColor = "black";
-        rootsections.style.backgroundColor = "black";  
-        header.style.backgroundColor = "black";
+        sec1.style.backgroundColor = 'black';
+        rootsections.style.backgroundColor = 'black';
+        header.style.backgroundColor = 'black';
         img.src = 'img/pen-logo.png';
         imgDiv1.src = 'img/pen-logo.png';
-        menu.style.backgroundColor = "black";
-        infoitems.style.backgroundColor = "black";
-
+        menu.style.backgroundColor = 'black';
+        infoitems.style.backgroundColor = 'black';
     }
-});
 
+    // Apply or remove dark mode styles based on the current state
+    if (isDarkMode) {
+        applyDarkModeStyles();
+    } else {
+        removeDarkModeStyles();
+    }
+}
+
+// Add event listeners to toggle switches
+toggleInput.addEventListener('change', toggleDarkMode);
+toggleInputOnOff.addEventListener('change', toggleDarkMode);
+
+// Initialize dark mode based on the initial state of the switches
+toggleDarkMode();
